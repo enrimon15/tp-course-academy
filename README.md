@@ -34,12 +34,12 @@ Enrico Monte
 <br>
 [Linkedin](<https://www.linkedin.com/in/enrico-monte-b2082118b/>)
 <br>
-[https:/enricomonte.dev](<https:/enricomonte.dev>)
+[https://enricomonte.dev](<https://enricomonte.dev>)
 
 
 ### Academy
 Created by [Aesys](<https://www.aesys.tech/>)
 <br>
 \
-![image](https://www.aesys.tech/wp-content/uploads/2021/12/aesys_logo_black.png)
+![image](https://www.smau.it/Imported/PartnerProfile/image-thumb__13591__partner-show-image/aesys_LOGO_VERSIONE_2018_40568.jpeg)
 
