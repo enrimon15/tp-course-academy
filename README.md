@@ -1,5 +1,5 @@
 # tp-course-academy
-Persistence Techniques Course (Hibernate - JPA - Spring Data JPA) for Java Academy
+Persistence Techniques Course for Java Academy
 
 ### Technologies
 - Java
@@ -31,5 +31,6 @@ Persistence Techniques Course (Hibernate - JPA - Spring Data JPA) for Java Acade
 
 ### Academy
 Created by [Aesys](<https://www.aesys.tech/>)
+\
 ![image](https://www.aesys.tech/wp-content/uploads/2021/12/aesys_logo_black.png)
 
