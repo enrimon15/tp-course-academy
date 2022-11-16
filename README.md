@@ -31,7 +31,9 @@ Persistence Techniques Course for Java Academy
 
 ### Instructor
 Enrico Monte
+<br>
 [Linkedin](<https://www.linkedin.com/in/enrico-monte-b2082118b/>)
+<br>
 [https:/enricomonte.dev](<https:/enricomonte.dev>)
 
 
