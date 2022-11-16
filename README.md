@@ -31,6 +31,7 @@ Persistence Techniques Course for Java Academy
 
 ### Academy
 Created by [Aesys](<https://www.aesys.tech/>)
+<br>
 \
 ![image](https://www.aesys.tech/wp-content/uploads/2021/12/aesys_logo_black.png)
 
