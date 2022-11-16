@@ -29,6 +29,12 @@ Persistence Techniques Course for Java Academy
 - Repository
 - Contesto Transazionale
 
+### Instructor
+Enrico Monte
+[Linkedin](<https://www.linkedin.com/in/enrico-monte-b2082118b/>)
+[https:/enricomonte.dev](<https:/enricomonte.dev>)
+
+
 ### Academy
 Created by [Aesys](<https://www.aesys.tech/>)
 <br>
