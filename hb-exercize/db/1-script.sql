@@ -17,7 +17,7 @@ CREATE TABLE `employee` (
   `last_name` varchar(45) DEFAULT NULL,
   `company` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-)
+);
 
 --
 -- Data for table `employee`
