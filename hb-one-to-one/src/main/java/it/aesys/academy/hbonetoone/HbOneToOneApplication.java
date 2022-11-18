@@ -22,14 +22,21 @@ public class HbOneToOneApplication implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("Execute code on startup..");
+		//createEmployee();
+		deleteEmployee();
+	}
 
+	private void deleteEmployee() {
+		int mockId = 1;
+		dao.deleteById(mockId);
+	}
+
+	private void createEmployee(){
 		EmployeeDetail detail = new EmployeeDetail("324234", "tony.stark@aesys.tech", 20);
 		Employee employee = new Employee("Tony", "Stark", "AESYS");
 
 		employee.setEmployeeDetail(detail);
 
 		dao.create(employee);
-
-
 	}
 }

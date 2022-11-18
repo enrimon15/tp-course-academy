@@ -19,4 +19,11 @@ public class EmployeeDao {
         session.save(employee);
         System.out.println("Employee: " + employee);
     }
+
+    @Transactional
+    public void deleteById(int mockId) {
+        Session session = sessionFactory.getCurrentSession();
+        Employee employeeToDelete = session.get(Employee.class, mockId);
+        session.delete(employeeToDelete);
+    }
 }
