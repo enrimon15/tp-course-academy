@@ -23,12 +23,13 @@ public class QueryEmployee {
             System.out.println("Prendi tutti gli employee");
             Query query = session.createQuery("from Employee");
             List<Employee> employeeList = query.getResultList();
-
             //List<Employee> employeeList = session.createQuery("from Employee").getResultList();
+            displayEmployees(employeeList);
 
-            for (Employee employee : employeeList) {
-                System.out.println("Employee: " + employee);
-            }
+            System.out.println("Prendi tutti gli employee con nome Elon");
+
+            List<Employee> employeesWithName = session.createQuery("from Employee e where e.firstName = 'Elon'").getResultList();
+            displayEmployees(employeesWithName);
 
             session.getTransaction().commit();
 
@@ -39,6 +40,12 @@ public class QueryEmployee {
             }
         } finally {
             HibernateUtility.shutdown();
+        }
+    }
+
+    public static void displayEmployees(List<Employee> employeeList) {
+        for (Employee employee : employeeList) {
+            System.out.println("Employee: " + employee);
         }
     }
 }
