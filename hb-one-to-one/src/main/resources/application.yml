@@ -1,0 +1,15 @@
+# ========= DATABASE HIBERNATE MYSQL =========== #
+hibernate:
+  datasource-url: jdbc:mysql://localhost:3306/tp_academy_db?useSSL=false&serverTimezone=UTC
+  username: tp_academy_user
+  password: tp_academy_password
+  driver: com.mysql.cj.jdbc.Driver
+  pool_size: 1
+  ddl-auto: validate
+  show_sql: true
+  format_sql: false
+  dialect: org.hibernate.dialect.MySQLDialect
+  package_to_scan: it.aesys.academy.hbonetoone.entity
+  # current_session_context_class: thread
+  # la proprietà current_session_context non deve essere impostata con contesto transazionale managed by spring
+  # perch? spring utilizza il proprio contesto
