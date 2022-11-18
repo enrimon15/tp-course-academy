@@ -31,6 +31,11 @@ public class QueryEmployee {
             List<Employee> employeesWithName = session.createQuery("from Employee e where e.firstName = 'Elon'").getResultList();
             displayEmployees(employeesWithName);
 
+            System.out.println("Prendi tutti gli employee con company Aesys");
+
+            List<Employee> employeesWithCompany = session.createQuery("from Employee e where e.company = 'AESYS'").getResultList();
+            displayEmployees(employeesWithCompany);
+
             session.getTransaction().commit();
 
         } catch (Exception e) {
