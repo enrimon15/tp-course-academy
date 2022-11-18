@@ -1,11 +1,6 @@
-package it.aesys.academy.entity;
+package it.aesys.academy.hbonetoone.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name ="employee")
@@ -24,6 +19,10 @@ public class Employee {
 
     @Column(name ="company")
     private String company;
+
+    @OneToOne(cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(name = "employee_detail_id")
+    private EmployeeDetail employeeDetail;
 
     public Employee() {
         super();
@@ -68,10 +67,23 @@ public class Employee {
         this.company = email;
     }
 
-    @Override
-    public String toString() {
-        return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", company=" + company + "]";
+    public EmployeeDetail getEmployeeDetail() {
+        return employeeDetail;
     }
 
+    public void setEmployeeDetail(EmployeeDetail employeeDetail) {
+        this.employeeDetail = employeeDetail;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", company='" + company + '\'' +
+                ", employeeDetail=" + employeeDetail +
+                '}';
+    }
 }
 
