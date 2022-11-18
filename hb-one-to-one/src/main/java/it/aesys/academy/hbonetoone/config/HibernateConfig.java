@@ -44,7 +44,7 @@ public class HibernateConfig {
         hibernateProperties.put(Environment.POOL_SIZE, env.getProperty("hibernate.pool_size"));
         hibernateProperties.put(Environment.SHOW_SQL, env.getProperty("hibernate.show_sql"));
         hibernateProperties.put(Environment.FORMAT_SQL, env.getProperty("hibernate.format_sql"));
-        hibernateProperties.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, env.getProperty("hibernate.current_session_context_class"));
+        //hibernateProperties.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, env.getProperty("hibernate.current_session_context_class"));
         sessionFactory.setHibernateProperties(hibernateProperties);
 
         return sessionFactory;
