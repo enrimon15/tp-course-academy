@@ -11,13 +11,14 @@ public class CreateEmployee {
     public static void main(String[] args) {
 
         /*
+        // Creazione employee con hibernate file config
         Session session = null;
 		SessionFactory sessionFactory = null;
 		try {
 
 			//creazione Session factory
 			sessionFactory = new Configuration()
-					.configure(HIBERNATE_CFG_XML)
+					.configure("hibernate.cfg.xml")
 					.addAnnotatedClass(Employee.class)
 					.buildSessionFactory();
 
@@ -51,6 +52,7 @@ public class CreateEmployee {
 		}
          */
 
+        // Creazione employee con hibernate java class config (esternalizzata)
         Session session = null;
         try {
             //creazione sessione da una classe esternalizzata (senza configurazione xml)
