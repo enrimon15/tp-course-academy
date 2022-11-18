@@ -78,7 +78,3 @@ HELP.md
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-hb-one-to-one/mvnw
-hb-one-to-one/mvnw.cmd
-hb-one-to-one/.mvn/wrapper/maven-wrapper.jar
-hb-one-to-one/.mvn/wrapper/maven-wrapper.properties
