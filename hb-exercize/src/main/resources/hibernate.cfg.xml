@@ -1,0 +1,41 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- JDBC Database connection settings -->
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/tp_academy_db?useSSL=false&amp;serverTimezone=UTC</property>
+        <property name="connection.username">tp_academy_user</property>
+        <property name="connection.password">tp_academy_password</property>
+
+        <!-- JDBC connection pool settings -->
+        <!-- Riduce l'overhead coinvolto nell'esecuzione delle connessioni al database
+             Le connessioni al database sono operazioni costose e dovrebbero essere ridotte al minimo
+             Utilizzando un pool di connessioni ci consente di riutilizzare un numero di connessioni esistenti,
+             risparmiando il costo dell'esecuzione e aumentando le performance -->
+        <property name="connection.pool_size">1</property>
+
+        <!-- Select our SQL dialect -->
+        <!-- I dialetti consentono a Hibernate di generare SQL ottimizzato per un particolare database relazionale -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- Echo the SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <!-- Format SQL query to stdout -->
+        <property name="format_sql">true</property>
+
+        <!-- DB initialization -->
+        <!-- Possibili valori: validate/create/update/create-drop/none -->
+        <property name="hbm2ddl.auto">validate</property>
+
+		<!-- Set current session context: thread per utilizzare una sola sessione senza aprire e chiuderne di nuove -->
+		<property name="current_session_context_class">thread</property>
+ 
+    </session-factory>
+
+</hibernate-configuration>
