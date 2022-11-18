@@ -1,6 +1,7 @@
 package it.aesys.academy.demo;
 
 import it.aesys.academy.entity.Employee;
+import it.aesys.academy.utility.HibernateUtility;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -9,36 +10,74 @@ public class CreateEmployee {
 
     public static void main(String[] args) {
 
-        SessionFactory sessionFactory = null;
+        /*
+        Session session = null;
+		SessionFactory sessionFactory = null;
+		try {
+
+			//creazione Session factory
+			sessionFactory = new Configuration()
+					.configure(HIBERNATE_CFG_XML)
+					.addAnnotatedClass(Employee.class)
+					.buildSessionFactory();
+
+			//creazione sessione
+			session = sessionFactory.getCurrentSession();
+
+			//creazione oggetto
+			System.out.println("creazione oggetto employee");
+			Employee myemployee = new Employee("Tony", "Stark", "AESYS");
+
+			//inizio transazione
+			session.beginTransaction();
+
+			//salvataggio oggetto
+			System.out.println("salvataggio oggetto employee");
+			session.save(myemployee);
+
+			//commit
+			session.getTransaction().commit();
+			System.out.println("commit effettuato");
+
+		} catch (Exception e) {
+			System.out.println("Errore: " + e);
+			if (session != null) {
+				session.getTransaction().rollback();
+			}
+		} finally {
+			if (sessionFactory != null && sessionFactory.isOpen()) {
+				sessionFactory.close();
+			}
+		}
+         */
+
         Session session = null;
         try {
-            sessionFactory = new Configuration()
-                    .configure("hibernate.cfg.xml")
-                    .addAnnotatedClass(Employee.class)
-                    .buildSessionFactory();
-
+            //creazione sessione da una classe esternalizzata (senza configurazione xml)
+            SessionFactory sessionFactory = sessionFactory = HibernateUtility.getSessionFactory();
             session = sessionFactory.getCurrentSession();
 
-            System.out.println("Creazione oggetto employee");
-            Employee employee = new Employee("Tony", "Stark", "AESYS");
+            //creazione oggetto
+            System.out.println("creazione oggetto studente");
+            Employee employee = new Employee("Stephen", "Strange", "AESYS");
 
-            System.out.println("Inizio transazione");
+            //inizio transazione
             session.beginTransaction();
 
-            System.out.println("Store nel db");
+            //salvataggio oggetto
+            System.out.println("salvataggio oggetto employee");
             session.save(employee);
 
-            System.out.println("Commit transazione");
+            //commit
             session.getTransaction().commit();
+            System.out.println("commit effettuato");
         } catch (Exception e) {
             System.out.println("Errore: " + e);
             if (session != null && session.getTransaction() != null) {
                 session.getTransaction().rollback();
             }
         } finally {
-            if (sessionFactory != null && sessionFactory.isOpen()) {
-                sessionFactory.close();
-            }
+            HibernateUtility.shutdown();
         }
 
 
