@@ -54,7 +54,7 @@ public class CreateEmployee {
         Session session = null;
         try {
             //creazione sessione da una classe esternalizzata (senza configurazione xml)
-            SessionFactory sessionFactory = sessionFactory = HibernateUtility.getSessionFactory();
+            SessionFactory sessionFactory = HibernateUtility.getSessionFactory();
             session = sessionFactory.getCurrentSession();
 
             //creazione oggetto
