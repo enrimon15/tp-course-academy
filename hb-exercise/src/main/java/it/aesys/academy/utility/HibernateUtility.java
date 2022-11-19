@@ -23,9 +23,9 @@ public class HibernateUtility {
             Map<String, String> settings = new HashMap<>();
             settings.put(Environment.DRIVER, "com.mysql.jdbc.Driver");
             settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQLDialect");
-            settings.put(Environment.URL, "jdbc:mysql://localhost:3306/tp_academy_db?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC");
-            settings.put(Environment.USER, "tp_academy_user");
-            settings.put(Environment.PASS, "tp_academy_password");
+            settings.put(Environment.URL, "jdbc:mysql://localhost:3306/tp_academy_db_hb?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC");
+            settings.put(Environment.USER, "tp_academy_user_hb");
+            settings.put(Environment.PASS, "tp_academy_password_hb");
             settings.put(Environment.POOL_SIZE, "1");
             settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
             settings.put(Environment.SHOW_SQL, "true");

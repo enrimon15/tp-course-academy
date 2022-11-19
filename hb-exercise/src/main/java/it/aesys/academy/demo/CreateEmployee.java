@@ -10,9 +10,8 @@ public class CreateEmployee {
 
     public static void main(String[] args) {
 
-        /*
         // Creazione employee con hibernate file config
-        Session session = null;
+        /*Session session = null;
 		SessionFactory sessionFactory = null;
 		try {
 
@@ -27,7 +26,7 @@ public class CreateEmployee {
 
 			//creazione oggetto
 			System.out.println("creazione oggetto employee");
-			Employee myemployee = new Employee("Tony", "Stark", "AESYS");
+			Employee myemployee = new Employee("Stephen", "Strange", "AESYS");
 
 			//inizio transazione
 			session.beginTransaction();
@@ -49,8 +48,7 @@ public class CreateEmployee {
 			if (sessionFactory != null && sessionFactory.isOpen()) {
 				sessionFactory.close();
 			}
-		}
-         */
+		}*/
 
         // Creazione employee con hibernate java class config (esternalizzata)
         Session session = null;

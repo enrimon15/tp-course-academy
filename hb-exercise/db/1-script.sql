@@ -1,9 +1,9 @@
-CREATE DATABASE  IF NOT EXISTS `tp_academy_db`;
+CREATE DATABASE  IF NOT EXISTS `tp_academy_db_hb`;
 
-USE `tp_academy_db`;
+USE `tp_academy_db_hb`;
 
-CREATE USER 'tp_academy_user'@'localhost' IDENTIFIED BY 'tp_academy_password';
-GRANT ALL PRIVILEGES ON tp_academy_db.* TO 'tp_academy_user'@'localhost';
+CREATE USER 'tp_academy_user_hb'@'localhost' IDENTIFIED BY 'tp_academy_password_hb';
+GRANT ALL PRIVILEGES ON tp_academy_db_hb.* TO 'tp_academy_user_hb'@'localhost';
 
 --
 -- Table structure for table `employee`
