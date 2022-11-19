@@ -16,21 +16,24 @@ public class DeleteEmployee {
             SessionFactory sessionFactory = HibernateUtility.getSessionFactory();
             session = sessionFactory.getCurrentSession();
 
+            // inizio transazione
             Transaction tx = session.beginTransaction();
 
             int mockId = 1;
-
+            // mi prendo dal db l'employee con id specificato
             Employee employee = session.get(Employee.class, mockId);
-
             session.delete(employee);
 
+            // commit transazione (rendo persistenti le operazioni nel db)
             tx.commit();
         } catch (Exception e) {
             System.out.println("Errore: " + e);
+            // se la sessione e la relativa transazione non sono nulle, faccio il rollback
             if (session != null && session.getTransaction() != null) {
                 session.getTransaction().rollback();
             }
         } finally {
+            // chiudo la session factory
             HibernateUtility.shutdown();
         }
     }

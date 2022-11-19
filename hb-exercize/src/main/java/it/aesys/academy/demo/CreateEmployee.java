@@ -55,30 +55,33 @@ public class CreateEmployee {
         // Creazione employee con hibernate java class config (esternalizzata)
         Session session = null;
         try {
-            //creazione sessione da una classe esternalizzata (senza configurazione xml)
+            //creazione session factory da una classe esternalizzata (senza configurazione xml)
             SessionFactory sessionFactory = HibernateUtility.getSessionFactory();
             session = sessionFactory.getCurrentSession();
 
-            //creazione oggetto
-            System.out.println("creazione oggetto studente");
+            //creazione oggetto employee
+            System.out.println("creazione oggetto employee");
             Employee employee = new Employee("Stephen", "Strange", "AESYS");
 
             //inizio transazione
+            System.out.println("inizio transazione");
             session.beginTransaction();
 
             //salvataggio oggetto
             System.out.println("salvataggio oggetto employee");
             session.save(employee);
 
-            //commit
+            //commit transazione (rendo persistenti le operazioni nel db)
             session.getTransaction().commit();
             System.out.println("commit effettuato");
         } catch (Exception e) {
             System.out.println("Errore: " + e);
+            // se la sessione e la relativa transazione non sono nulle, faccio il rollback
             if (session != null && session.getTransaction() != null) {
                 session.getTransaction().rollback();
             }
         } finally {
+            // chiudo la session factory
             HibernateUtility.shutdown();
         }
 

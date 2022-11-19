@@ -15,27 +15,26 @@ public class FindEmployee {
             SessionFactory sessionFactory = HibernateUtility.getSessionFactory();
             session = sessionFactory.getCurrentSession();
 
-            //creazione oggetto
-            System.out.println("get oggetto studente");
-
             //inizio transazione
             session.beginTransaction();
 
             int mockId = 1;
-
+            // prendo l'employee con id specificato dal db
             Employee employee = session.get(Employee.class, mockId);
 
-            //commit
+            //commit transazione (rendo persistenti le operazioni nel db)
             session.getTransaction().commit();
             System.out.println("commit effettuato");
 
             System.out.println("Employee: " + employee.toString());
         } catch (Exception e) {
             System.out.println("Errore: " + e);
+            // se la sessione e la relativa transazione non sono nulle, faccio il rollback
             if (session != null && session.getTransaction() != null) {
                 session.getTransaction().rollback();
             }
         } finally {
+            // chiudo la session factory
             HibernateUtility.shutdown();
         }
 
