@@ -48,6 +48,7 @@
 			<artifactId>spring-orm</artifactId>
 			<version>5.1.6.RELEASE</version>
 		</dependency>
+		<!-- required with java >= 11 -->
 		<dependency>
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>

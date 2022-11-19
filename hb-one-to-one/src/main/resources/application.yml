@@ -12,4 +12,4 @@ hibernate:
   package_to_scan: it.aesys.academy.hbonetoone.entity
   # current_session_context_class: thread
   # la proprietà current_session_context non deve essere impostata con contesto transazionale managed by spring
-  # perch? spring utilizza il proprio contesto
+  # perchè spring utilizza il proprio contesto

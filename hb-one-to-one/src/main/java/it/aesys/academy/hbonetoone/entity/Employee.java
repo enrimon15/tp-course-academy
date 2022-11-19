@@ -20,6 +20,8 @@ public class Employee {
     @Column(name ="company")
     private String company;
 
+    // cascade: https://www.baeldung.com/jpa-cascade-types
+    // le operazioni specificate nel cascade, su questa entity, vengono riflesse a cascata sulle entities correlate
     @OneToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "employee_detail_id")
     private EmployeeDetail employeeDetail;

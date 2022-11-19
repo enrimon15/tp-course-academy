@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-public class EmployeeDao {
+public class EmployeeDaoImpl implements EmployeeDao {
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -16,14 +16,17 @@ public class EmployeeDao {
     @Transactional
     public void create(Employee employee) {
         Session session = sessionFactory.getCurrentSession();
+        // salvo l'Employee e a cascata anche l'entità correlata EmployeeDetail (grazie all'attributo cascade specificato nel mapping)
         session.save(employee);
-        System.out.println("Employee: " + employee);
+        System.out.println("Employee salvato: " + employee);
     }
 
     @Transactional
-    public void deleteById(int mockId) {
+    public void deleteById(int id) {
         Session session = sessionFactory.getCurrentSession();
-        Employee employeeToDelete = session.get(Employee.class, mockId);
+        // Ottengo l'employee tramite id dato in input
+        Employee employeeToDelete = session.get(Employee.class, id);
+        // elimino l'Employee e a cascata anche l'entità correlata EmployeeDetail (grazie all'attributo cascade specificato nel mapping)
         session.delete(employeeToDelete);
     }
 }
