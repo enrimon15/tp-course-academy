@@ -16,27 +16,31 @@ public class HbOneToOneApplication implements ApplicationRunner {
 		SpringApplication.run(HbOneToOneApplication.class, args);
 	}
 
+	// N.B. in uno scenario reale non inietto la dipendenza del dao direttamente nel main
+	// uso la catena controller <--> service <--> dao/repository (con interfacce e implementazioni)
 	@Autowired
 	private EmployeeDao dao;
 
+	// metodo implementato da ApplicationRunner per eseguire codice allo startup
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		System.out.println("Execute code on startup..");
+		System.out.println("Esegui codice allo startup..");
 		//createEmployee();
 		deleteEmployee();
+	}
+
+	private void createEmployee(){
+		// creo gli oggeti Employee e EmployeeDetail
+		EmployeeDetail detail = new EmployeeDetail("324234", "tony.stark@aesys.tech", 20);
+		Employee employee = new Employee("Tony", "Stark", "AESYS");
+		// li compongo in un unico oggetto facendo il set dei dettagli sull'Employee
+		employee.setEmployeeDetail(detail);
+		// chiamo il DAO passando in input l'oggetto unico (composto)
+		dao.create(employee);
 	}
 
 	private void deleteEmployee() {
 		int mockId = 1;
 		dao.deleteById(mockId);
-	}
-
-	private void createEmployee(){
-		EmployeeDetail detail = new EmployeeDetail("324234", "tony.stark@aesys.tech", 20);
-		Employee employee = new Employee("Tony", "Stark", "AESYS");
-
-		employee.setEmployeeDetail(detail);
-
-		dao.create(employee);
 	}
 }
