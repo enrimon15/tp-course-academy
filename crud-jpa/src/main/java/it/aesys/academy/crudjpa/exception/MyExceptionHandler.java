@@ -1,5 +1,6 @@
 package it.aesys.academy.crudjpa.exception;
 
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -7,6 +8,16 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 public class MyExceptionHandler {
+
+    @ExceptionHandler(value = EmptyResultDataAccessException.class)
+    public ResponseEntity<ApiError> libraryExceptionHandling(EmptyResultDataAccessException ex) {
+        ApiError error = new ApiError();
+        error.setStatusCode(HttpStatus.NOT_FOUND.value());
+        error.setMessage("Record not found");
+
+        ResponseEntity<ApiError> errorResponse = ResponseEntity.status(HttpStatus.NOT_FOUND.value()).body(error);
+        return errorResponse;
+    }
 
     @ExceptionHandler(value = MyCustomException.class)
     public ResponseEntity<ApiError> libraryExceptionHandling(MyCustomException ex) {

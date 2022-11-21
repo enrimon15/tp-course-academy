@@ -10,4 +10,8 @@ public interface EmployeeDao {
     Employee findById(int id);
 
     void saveOrUpdate(Employee employee);
+
+    void remove(Employee employeeToDelete);
+
+    Employee searchByEmail(String email);
 }

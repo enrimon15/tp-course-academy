@@ -30,4 +30,20 @@ public class EmployeeDaoImpl implements  EmployeeDao {
         // se l'id == null oppure è 0 --> salva su db, altrimenti aggiorna
         entityManager.merge(employee);
     }
+
+    @Override
+    public void remove(Employee employeeToDelete) {
+        entityManager.remove(employeeToDelete);
+
+        // query --> "delete from Employee where id = :id"
+        // query set param ("id", employeeToDelete.getId());
+        // execute
+    }
+
+    @Override
+    public Employee searchByEmail(String email) {
+        TypedQuery<Employee> query = entityManager.createQuery("select e from Employee e where e.employeeDetail.email = :email", Employee.class);
+        query.setParameter("email", email);
+        return query.getSingleResult();
+    }
 }

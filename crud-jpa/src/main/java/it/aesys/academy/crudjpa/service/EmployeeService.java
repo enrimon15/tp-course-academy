@@ -12,4 +12,8 @@ public interface EmployeeService {
     void createEmployee(Employee employee);
 
     void updateEmployeeById(int id, Employee employee);
+
+    void removeEmployee(int id);
+
+    Employee searchByEmail(String email);
 }

@@ -47,4 +47,21 @@ public class EmployeeServiceImpl implements EmployeeService {
         newEmployee.getEmployeeDetail().setId(oldEmployee.getEmployeeDetail().getId());
         dao.saveOrUpdate(newEmployee);
     }
+
+    @Override
+    @Transactional
+    public void removeEmployee(int id) {
+        Employee employeeToDelete = getEmployeeById(id);
+        dao.remove(employeeToDelete);
+    }
+
+    @Override
+    public Employee searchByEmail(String email) {
+        Employee employee = dao.searchByEmail(email);
+        // se employee non esiste gestito nell exception handler
+        /*if (employee == null) {
+            throw new MyCustomException("Employee con email " + email + " non trovato", HttpStatus.NOT_FOUND.value());
+        }*/
+        return employee;
+    }
 }

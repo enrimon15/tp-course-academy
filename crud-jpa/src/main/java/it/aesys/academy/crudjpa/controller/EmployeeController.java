@@ -44,4 +44,16 @@ public class EmployeeController {
         return ResponseEntity.noContent().build();
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteEmployee(@PathVariable int id) {
+        service.removeEmployee(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/search") // http:// ........ /api/employees/search?email=...
+    public ResponseEntity<Employee> searchByEmail(@RequestParam String email) {
+        Employee employee = service.searchByEmail(email);
+        return ResponseEntity.ok(employee);
+    }
+
 }
