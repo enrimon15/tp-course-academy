@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 // transactional read only posso metterla a lv. di classe e verrà presa da ogni metodo all'interno della classe
 // N.B. per i metodi di scrittura devo sovrascrivere
-@Transactional
 public class EmployeeDaoImpl implements EmployeeDao {
 
     @Autowired
