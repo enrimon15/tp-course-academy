@@ -3,6 +3,7 @@ package it.aesys.academy.hbonetomany;
 import it.aesys.academy.hbonetomany.dao.EmployeeDao;
 import it.aesys.academy.hbonetomany.entity.Employee;
 import it.aesys.academy.hbonetomany.entity.EmployeeDetail;
+import it.aesys.academy.hbonetomany.entity.Skill;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -25,6 +26,27 @@ public class HbOneToManyApplication implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("Esegui codice allo startup..");
+		//createEmployee();
+		printEmployeeSkillsByEmployeeId();
+	}
 
+	private void createEmployee() {
+		EmployeeDetail detail = new EmployeeDetail("234234", "tony.stark@aesys.tech", 20);
+		Skill ia = new Skill("Intelligenza Artificiale", 10);
+		Skill java = new Skill("Java", 10);
+
+		Employee employee = new Employee("Tony", "Stark", "AESYS");
+
+		// compongo l'oggetto con le relazioni
+		employee.setEmployeeDetail(detail);
+		employee.addSkill(ia);
+		employee.addSkill(java);
+
+		dao.createEmployee(employee);
+	}
+
+	private void printEmployeeSkillsByEmployeeId() {
+		int mockId = 1;
+		dao.printSkillsById(mockId);
 	}
 }

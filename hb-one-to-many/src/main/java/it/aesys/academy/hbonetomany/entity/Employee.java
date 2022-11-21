@@ -1,6 +1,8 @@
 package it.aesys.academy.hbonetomany.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name ="employee")
@@ -25,6 +27,9 @@ public class Employee {
     @OneToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "employee_detail_id")
     private EmployeeDetail employeeDetail;
+
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    private List<Skill> skills;
 
     public Employee() {
         super();
@@ -77,6 +82,24 @@ public class Employee {
         this.employeeDetail = employeeDetail;
     }
 
+    public List<Skill> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<Skill> skills) {
+        this.skills = skills;
+    }
+
+    public void addSkill(Skill skillToAdd) {
+        if (skills == null) {
+            skills = new ArrayList<>();
+        }
+        skills.add(skillToAdd);
+        // setto la relazione biderezionale (perchè l'owner è su skill)
+        // this si riferisce all'oggetto employee corrente
+        skillToAdd.setEmployee(this);
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -85,6 +108,7 @@ public class Employee {
                 ", lastName='" + lastName + '\'' +
                 ", company='" + company + '\'' +
                 ", employeeDetail=" + employeeDetail +
+                ", skills=" + skills +
                 '}';
     }
 }

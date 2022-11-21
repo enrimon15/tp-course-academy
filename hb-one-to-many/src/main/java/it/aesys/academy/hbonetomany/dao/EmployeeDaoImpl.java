@@ -9,8 +9,24 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-// transactional read only posso metterla a lv. di classe e verrà presa da ogni metodo all'interno della classe
-// N.B. per i metodi di scrittura devo sovrascrivere
+@Transactional(readOnly = true)
 public class EmployeeDaoImpl implements EmployeeDao {
-    
+
+    @Autowired
+    private SessionFactory sessionFactory;
+
+    @Override
+    @Transactional
+    public void createEmployee(Employee employee) {
+        Session session = sessionFactory.getCurrentSession();
+        session.save(employee);
+        System.out.println("Employee salvato: " + employee.toString());
+    }
+
+    @Override
+    public void printSkillsById(int mockId) {
+        Session session = sessionFactory.getCurrentSession();
+        Employee employee = session.get(Employee.class, mockId);
+        System.out.println("Skills associate: " + employee.getSkills());
+    }
 }
