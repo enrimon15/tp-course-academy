@@ -88,3 +88,6 @@ hb-one-to-many/.mvn/wrapper/maven-wrapper.properties
 hb-many-to-many/mvnw
 hb-many-to-many/mvnw.cmd
 hb-many-to-many/.mvn/wrapper/maven-wrapper.properties
+crud-jpa/mvnw
+crud-jpa/mvnw.cmd
+crud-jpa/.mvn/wrapper/maven-wrapper.jar
