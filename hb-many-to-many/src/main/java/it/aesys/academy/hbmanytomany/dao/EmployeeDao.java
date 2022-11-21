@@ -8,4 +8,6 @@ public interface EmployeeDao {
     void createAndAssignProject(int employeeId, Project project);
 
     void printProjectsById(int mockEmployeeId);
+
+    void deleteById(int mockEmployeeId);
 }

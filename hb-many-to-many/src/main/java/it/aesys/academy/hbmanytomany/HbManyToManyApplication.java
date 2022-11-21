@@ -28,7 +28,8 @@ public class HbManyToManyApplication implements ApplicationRunner {
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("Esegui codice allo startup..");
 		//createAndAssignProject();
-		printProjectsByEmployeeId();
+		//printProjectsByEmployeeId();
+		deleteEmployeeById();
 	}
 
 	// creo progetto e lo assegno ad un employee esistente
@@ -41,5 +42,10 @@ public class HbManyToManyApplication implements ApplicationRunner {
 	private void printProjectsByEmployeeId() {
 		int mockEmployeeId = 1;
 		dao.printProjectsById(mockEmployeeId);
+	}
+
+	private void deleteEmployeeById() {
+		int mockEmployeeId = 1;
+		dao.deleteById(mockEmployeeId);
 	}
 }
