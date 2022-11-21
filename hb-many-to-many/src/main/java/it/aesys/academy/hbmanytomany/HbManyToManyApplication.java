@@ -3,6 +3,7 @@ package it.aesys.academy.hbmanytomany;
 import it.aesys.academy.hbmanytomany.dao.EmployeeDao;
 import it.aesys.academy.hbmanytomany.entity.Employee;
 import it.aesys.academy.hbmanytomany.entity.EmployeeDetail;
+import it.aesys.academy.hbmanytomany.entity.Project;
 import it.aesys.academy.hbmanytomany.entity.Skill;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -26,5 +27,19 @@ public class HbManyToManyApplication implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("Esegui codice allo startup..");
+		//createAndAssignProject();
+		printProjectsByEmployeeId();
+	}
+
+	// creo progetto e lo assegno ad un employee esistente
+	private void createAndAssignProject() {
+		Project project = new Project(50000, "Poste Italiane", "Click and Collect");
+		int employeeId = 1;
+		dao.createAndAssignProject(employeeId, project);
+	}
+
+	private void printProjectsByEmployeeId() {
+		int mockEmployeeId = 1;
+		dao.printProjectsById(mockEmployeeId);
 	}
 }

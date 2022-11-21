@@ -31,6 +31,14 @@ public class Employee {
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
     private List<Skill> skills;
 
+    @ManyToMany
+    @JoinTable(
+            name = "project_employee",
+            joinColumns = @JoinColumn(name = "employee_id"),
+            inverseJoinColumns = @JoinColumn(name = "project_id")
+    )
+    private List<Project> projects = new ArrayList<>();
+
     public Employee() {
         super();
     }
@@ -100,6 +108,21 @@ public class Employee {
         skillToAdd.setEmployee(this);
     }
 
+    public void addProject(Project projectToAdd) {
+        projects.add(projectToAdd);
+        // setto la relazione biderezionale
+        // this si riferisce all'oggetto employee corrente
+        projectToAdd.getEmployees().add(this);
+    }
+
+    public List<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -109,6 +132,7 @@ public class Employee {
                 ", company='" + company + '\'' +
                 ", employeeDetail=" + employeeDetail +
                 ", skills=" + skills +
+                ", projects=" + projects +
                 '}';
     }
 }
