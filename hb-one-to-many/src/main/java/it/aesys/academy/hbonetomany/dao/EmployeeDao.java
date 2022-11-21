@@ -6,4 +6,6 @@ public interface EmployeeDao {
     void createEmployee(Employee employee);
 
     void printSkillsById(int mockId);
+
+    void deleteEmployeeById(int mockId);
 }

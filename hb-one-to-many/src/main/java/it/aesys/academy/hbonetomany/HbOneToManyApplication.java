@@ -27,7 +27,8 @@ public class HbOneToManyApplication implements ApplicationRunner {
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("Esegui codice allo startup..");
 		//createEmployee();
-		printEmployeeSkillsByEmployeeId();
+		//printEmployeeSkillsByEmployeeId();
+		deleteEmployee();
 	}
 
 	private void createEmployee() {
@@ -48,5 +49,11 @@ public class HbOneToManyApplication implements ApplicationRunner {
 	private void printEmployeeSkillsByEmployeeId() {
 		int mockId = 1;
 		dao.printSkillsById(mockId);
+	}
+
+	// eliminazione employee con annessi employeeDetail e skills (per il cascade)
+	private void deleteEmployee() {
+		int mockId = 1;
+		dao.deleteEmployeeById(mockId);
 	}
 }

@@ -29,4 +29,12 @@ public class EmployeeDaoImpl implements EmployeeDao {
         Employee employee = session.get(Employee.class, mockId);
         System.out.println("Skills associate: " + employee.getSkills());
     }
+
+    @Override
+    @Transactional
+    public void deleteEmployeeById(int mockId) {
+        Session session = sessionFactory.getCurrentSession();
+        Employee employee = session.get(Employee.class, mockId);
+        session.delete(employee);
+    }
 }
