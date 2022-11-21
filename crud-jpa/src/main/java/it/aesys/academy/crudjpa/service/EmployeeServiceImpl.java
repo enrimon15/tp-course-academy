@@ -1,40 +1,42 @@
 package it.aesys.academy.crudjpa.service;
 
-import it.aesys.academy.crudjpa.dao.EmployeeDao;
 import it.aesys.academy.crudjpa.entity.Employee;
 import it.aesys.academy.crudjpa.exception.MyCustomException;
+import it.aesys.academy.crudjpa.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
 public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
-    private EmployeeDao dao;
+    private EmployeeRepository repo;
 
     @Override
     public List<Employee> getAllEmployee() {
-        return dao.findAll();
+        return repo.findAll();
     }
 
     @Override
     public Employee getEmployeeById(int id) {
-        Employee employee = dao.findById(id);
-        if (employee == null) {
+        Optional<Employee> employeeOpt = repo.findById(id);
+        if (employeeOpt.isEmpty()) {
             throw new MyCustomException("Employee con id " + id + " non trovato", HttpStatus.NOT_FOUND.value());
         }
-        return employee;
+        return employeeOpt.get();
     }
 
     @Override
     @Transactional
     public void createEmployee(Employee employee) {
-        dao.saveOrUpdate(employee);
+        repo.save(employee);
+        //dao.saveOrUpdate(employee);
     }
 
     @Override
@@ -45,23 +47,23 @@ public class EmployeeServiceImpl implements EmployeeService {
         // setto gli id per aggiornare
         newEmployee.setId(oldEmployee.getId());
         newEmployee.getEmployeeDetail().setId(oldEmployee.getEmployeeDetail().getId());
-        dao.saveOrUpdate(newEmployee);
+        repo.save(newEmployee);
     }
 
     @Override
     @Transactional
     public void removeEmployee(int id) {
         Employee employeeToDelete = getEmployeeById(id);
-        dao.remove(employeeToDelete);
+        repo.delete(employeeToDelete);
+        //repo.deleteById(id);
     }
 
     @Override
     public Employee searchByEmail(String email) {
-        Employee employee = dao.searchByEmail(email);
-        // se employee non esiste gestito nell exception handler
-        /*if (employee == null) {
+        Optional<Employee> employeeOptional = repo.findByEmployeeDetailEmail(email);
+        if (employeeOptional.isEmpty()) {
             throw new MyCustomException("Employee con email " + email + " non trovato", HttpStatus.NOT_FOUND.value());
-        }*/
-        return employee;
+        }
+        return employeeOptional.get();
     }
 }
