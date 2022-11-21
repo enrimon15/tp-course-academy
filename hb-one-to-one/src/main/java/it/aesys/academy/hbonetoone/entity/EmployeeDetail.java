@@ -19,6 +19,9 @@ public class EmployeeDetail {
     @Column(name ="year_experience")
     private int yearExperience;
 
+    @OneToOne(mappedBy = "employeeDetail", cascade = CascadeType.ALL)
+    private Employee employee;
+
     public EmployeeDetail() {}
 
     public EmployeeDetail(String phone, String email, int yearExperience) {
@@ -59,6 +62,15 @@ public class EmployeeDetail {
         this.yearExperience = yearExperience;
     }
 
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    // non metto nel toString l'employee altrimenti ho un ciclo infinito
     @Override
     public String toString() {
         return "EmployeeDetail{" +

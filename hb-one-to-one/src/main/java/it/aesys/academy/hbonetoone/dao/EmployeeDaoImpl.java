@@ -13,6 +13,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
     @Autowired
     private SessionFactory sessionFactory;
 
+    @Override
     @Transactional
     public void create(Employee employee) {
         Session session = sessionFactory.getCurrentSession();
@@ -21,6 +22,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
         System.out.println("Employee salvato: " + employee);
     }
 
+    @Override
     @Transactional
     public void deleteById(int id) {
         Session session = sessionFactory.getCurrentSession();
