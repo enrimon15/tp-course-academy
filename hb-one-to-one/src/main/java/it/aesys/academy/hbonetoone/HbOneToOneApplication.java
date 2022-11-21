@@ -25,8 +25,13 @@ public class HbOneToOneApplication implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("Esegui codice allo startup..");
+		// unidirectional
 		//createEmployee();
-		deleteEmployee();
+		//deleteEmployee();
+
+		// bidirectional
+		//printEmployeeByDetailId();
+		deleteEmployeeByEmployeeDetailId();
 	}
 
 	private void createEmployee(){
@@ -42,5 +47,15 @@ public class HbOneToOneApplication implements ApplicationRunner {
 	private void deleteEmployee() {
 		int mockId = 1;
 		dao.deleteById(mockId);
+	}
+
+	private void printEmployeeByDetailId() {
+		int mockDetailId = 2;
+		dao.getByDetailId(mockDetailId);
+	}
+
+	private void deleteEmployeeByEmployeeDetailId() {
+		int mockDetailId = 2;
+		dao.deleteByEmployeeDetailId(mockDetailId);
 	}
 }
