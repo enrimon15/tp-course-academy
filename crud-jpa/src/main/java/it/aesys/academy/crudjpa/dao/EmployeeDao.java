@@ -8,4 +8,6 @@ public interface EmployeeDao {
     List<Employee> findAll();
 
     Employee findById(int id);
+
+    void saveOrUpdate(Employee employee);
 }

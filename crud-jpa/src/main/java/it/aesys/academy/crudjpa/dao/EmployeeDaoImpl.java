@@ -24,4 +24,10 @@ public class EmployeeDaoImpl implements  EmployeeDao {
     public Employee findById(int id) {
         return entityManager.find(Employee.class, id);
     }
+
+    @Override
+    public void saveOrUpdate(Employee employee) {
+        // se l'id == null oppure è 0 --> salva su db, altrimenti aggiorna
+        entityManager.merge(employee);
+    }
 }

@@ -30,4 +30,21 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
         return employee;
     }
+
+    @Override
+    @Transactional
+    public void createEmployee(Employee employee) {
+        dao.saveOrUpdate(employee);
+    }
+
+    @Override
+    @Transactional
+    public void updateEmployeeById(int id, Employee newEmployee) {
+        // utilizzo il metodo di get già creato in precedenza, che controlla anche l'esistenza sul db del record
+        Employee oldEmployee = getEmployeeById(id);
+        // setto gli id per aggiornare
+        newEmployee.setId(oldEmployee.getId());
+        newEmployee.getEmployeeDetail().setId(oldEmployee.getEmployeeDetail().getId());
+        dao.saveOrUpdate(newEmployee);
+    }
 }

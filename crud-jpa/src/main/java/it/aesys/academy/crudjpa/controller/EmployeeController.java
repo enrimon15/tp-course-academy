@@ -3,11 +3,9 @@ package it.aesys.academy.crudjpa.controller;
 import it.aesys.academy.crudjpa.entity.Employee;
 import it.aesys.academy.crudjpa.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,6 +28,20 @@ public class EmployeeController {
     public ResponseEntity<Employee> getEmployeeById(@PathVariable int id) {
         Employee employee = service.getEmployeeById(id);
         return ResponseEntity.ok(employee);
+    }
+
+    // creazione nuovo employee
+    @PostMapping
+    public ResponseEntity<Void> createEmployee(@RequestBody Employee employee) {
+        service.createEmployee(employee);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    // creazione nuovo employee
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> updateEmployee(@RequestBody Employee employee, @PathVariable int id) {
+        service.updateEmployeeById(id, employee);
+        return ResponseEntity.noContent().build();
     }
 
 }
