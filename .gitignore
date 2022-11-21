@@ -85,3 +85,6 @@ hb-one-to-one/.mvn/wrapper/maven-wrapper.properties
 hb-one-to-many/mvnw
 hb-one-to-many/mvnw.cmd
 hb-one-to-many/.mvn/wrapper/maven-wrapper.properties
+hb-many-to-many/mvnw
+hb-many-to-many/mvnw.cmd
+hb-many-to-many/.mvn/wrapper/maven-wrapper.properties
