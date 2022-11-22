@@ -30,19 +30,19 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     // searchByEmail --> Employee > EmployeeDetail > email
     Optional<Employee> findByEmployeeDetailEmail(String email);
     // select * from employee e, employee_detail ed where e.employee_detail_id = ed.id and ed.email = <input>
-    // find by attributo che sta in EMployee che si chiama EmployeeDetailEmail
-    // Employee > employee > detail > email
-    // Employee > employee > detailEmail
+    // potrebbe tradursi in find by attributo che sta in Employee che si chiama EmployeeDetailEmail
+    // oppure in Employee > employee > detail > email
+    // oppure in Employee > employee > detailEmail
 
     // query custom con JPQL (usare solo se necessario)
     @Query("SELECT e FROM Employee e WHERE e.employeeDetail.email =: email")
     Optional<Employee> findByEmployeeDetailEmailCustom(@Param("email") String email);
 
     // query con SQL nativo (usare solo se necessario: non è portabile)
-    @Query("SELECT e FROM EMPLOYEE e, EMPLOYEE_DETAIL ed, WHERE e.employee_detail_id = ed.id AND ed.email = ?1")
+    @Query(value = "select e FROM EMPLOYEE e, EMPLOYEE_DETAIL ed WHERE e.employee_detail_id = ed.id AND ed.email = ?1", nativeQuery = true)
     Optional<Employee> findByEmployeeDetailEmailNative(String email);
 
-    /*List<Employee> findAllByFirstNameOrderById(String firstName); // --> select * from employee where first_name = <input>
+    /*List<Employee> findAllByFirstNameOrderById(String firstName); // --> select * from employee where first_name = <input> order by id
 
     Employee findByCompany(String company); // --> select * from employee where company = <input>
 
