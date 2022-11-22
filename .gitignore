@@ -91,3 +91,6 @@ hb-many-to-many/.mvn/wrapper/maven-wrapper.properties
 crud-jpa/mvnw
 crud-jpa/mvnw.cmd
 crud-jpa/.mvn/wrapper/maven-wrapper.jar
+crud-spring-data-jpa/mvnw
+crud-spring-data-jpa/mvnw.cmd
+crud-spring-data-jpa/.mvn/wrapper/maven-wrapper.jar
