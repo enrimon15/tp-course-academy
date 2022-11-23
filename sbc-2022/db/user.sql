@@ -1,0 +1,3 @@
+CREATE USER 'user_library'@'%' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'user_library'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;

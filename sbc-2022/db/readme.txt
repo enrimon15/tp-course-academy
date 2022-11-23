@@ -1,0 +1,2 @@
+- eseguire/importare il file dump che crea il db, le tabelle e popola i dati
+- eseguire lo script relativo alla creazione utente

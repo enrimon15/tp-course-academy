@@ -1,0 +1,450 @@
+{
+	"info": {
+		"_postman_id": "7c6fb0fc-3222-48e9-a1d3-bb75303edb79",
+		"name": "library_ms",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "report",
+			"item": [
+				{
+					"name": "createReport",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"reportDtoRequest\": {\r\n        \"fiscalCodeNumber\": \"HFGJSK34JY678GK9\",\r\n        \"problemType\": \"NONPAYMENT\",\r\n        \"problemDescription\": \"no payment description test\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/report",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"report"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateReport",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"reportDtoRequest\": {\r\n        \"fiscalCodeNumber\": \"HFGJSK34JY678GK9\",\r\n        \"problemType\": \"FAILURE_TO_RETURN\",\r\n        \"problemDescription\": \"failure to return description test\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/report/17",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"report",
+								"17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteReportById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/report/17",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"report",
+								"17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "evaluate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/evaluate/SCCNTN00L20G141Z",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"evaluate",
+								"SCCNTN00L20G141Z"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getHistoryByFiscalCode Copy 2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/report/SCCNTN00L20G141Z",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"report",
+								"SCCNTN00L20G141Z"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "document",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nameFile",
+									"value": "testNameFile",
+									"type": "text"
+								},
+								{
+									"key": "typeOfFile",
+									"value": "PDF",
+									"type": "text"
+								},
+								{
+									"key": "typeOfDoc",
+									"value": "ID_CARD",
+									"type": "text"
+								},
+								{
+									"key": "fiscalCode",
+									"value": "SDFFGB45G56B345P",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/EnricoMonte/Desktop/test.txt"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/document",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"document"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nameFile",
+									"value": "testNameFileChange",
+									"type": "text"
+								},
+								{
+									"key": "typeOfFile",
+									"value": "PNG",
+									"type": "text"
+								},
+								{
+									"key": "typeOfDoc",
+									"value": "DRIVER_LICENSE",
+									"type": "text"
+								},
+								{
+									"key": "fiscalCode",
+									"value": "SDFFGB45G56B345P",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/EnricoMonte/Desktop/test.txt"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/document/23",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"document",
+								"23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/document/22",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"document",
+								"22"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/document/21",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"document",
+								"21"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/document",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"document"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByCf",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/document?cf=MLNVLR44R25H501S",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"document"
+							],
+							"query": [
+								{
+									"key": "cf",
+									"value": "MLNVLR44R25H501S"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "person",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"personDTO\": {\r\n        \"name\": \"NewPerson\",\r\n        \"surname\": \"NewSurname\",\r\n        \"fiscalCode\": \"FGBGHM45G67H756J\",\r\n        \"gender\": \"M\",\r\n        \"address\": {\r\n            \"street\": \"via nuovo person\",\r\n            \"civic\": \"13a\",\r\n            \"postalCode\": 45136,\r\n            \"home\": \"DOMICILE\"\r\n        },\r\n        \"birthDate\": \"1997-10-06\",\r\n        \"cellNumber\": \"3898788558\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/personregistry",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"personregistry"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"personDTO\": {\r\n        \"name\": \"NewPersonChange\",\r\n        \"surname\": \"NewSurnameChange\",\r\n        \"gender\": \"M\",\r\n        \"address\": {\r\n            \"street\": \"via nuovo person change\",\r\n            \"civic\": \"10b\",\r\n            \"postalCode\": 45137,\r\n            \"home\": \"DOMICILE\"\r\n        },\r\n        \"birthDate\": \"1997-05-15\",\r\n        \"cellNumber\": \"3898788558\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/personregistry/FGBGHM45G67H756J",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"personregistry",
+								"FGBGHM45G67H756J"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/personregistry/FGBGHM45G67H756J",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"personregistry",
+								"FGBGHM45G67H756J"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/personregistry",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"personregistry"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByFiscalCode",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/personregistry/antscc12g25g456g",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"personregistry",
+								"antscc12g25g456g"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
