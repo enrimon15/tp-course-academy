@@ -23,12 +23,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/report",
+							"raw": "http://localhost:8082/report",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"report"
 							]
@@ -51,12 +51,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/report/17",
+							"raw": "http://localhost:8082/report/17",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"report",
 								"17"
@@ -71,12 +71,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/report/17",
+							"raw": "http://localhost:8082/report/17",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"report",
 								"17"
@@ -91,12 +91,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/evaluate/SCCNTN00L20G141Z",
+							"raw": "http://localhost:8082/evaluate/SCCNTN00L20G141Z",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"evaluate",
 								"SCCNTN00L20G141Z"
@@ -111,12 +111,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/report/SCCNTN00L20G141Z",
+							"raw": "http://localhost:8082/report/SCCNTN00L20G141Z",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"report",
 								"SCCNTN00L20G141Z"
@@ -171,12 +171,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/document",
+							"raw": "http://localhost:8081/document",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8081",
 							"path": [
 								"document"
 							]
@@ -225,12 +225,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/document/23",
+							"raw": "http://localhost:8081/document/23",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8081",
 							"path": [
 								"document",
 								"23"
@@ -245,12 +245,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/document/22",
+							"raw": "http://localhost:8081/document/22",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8081",
 							"path": [
 								"document",
 								"22"
@@ -265,12 +265,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/document/21",
+							"raw": "http://localhost:8081/document/21",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8081",
 							"path": [
 								"document",
 								"21"
@@ -285,12 +285,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/document",
+							"raw": "http://localhost:8081/document",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8081",
 							"path": [
 								"document"
 							]
@@ -304,12 +304,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/document?cf=MLNVLR44R25H501S",
+							"raw": "http://localhost:8081/document?cf=MLNVLR44R25H501S",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8081",
 							"path": [
 								"document"
 							],
